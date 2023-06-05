@@ -214,6 +214,7 @@ app.delete("/api/videos/:id", async(req,res)=>{
     const id = req.params.id
     const deletedVideo= await VideoModel.findByIdAndDelete(id);
     const videoIDX = deletedVideo.video.substr(videoIDX)
+    const videoName = existedFilm.image.substr(idx)
     fs.unlinkSync('./'+videoName)
     if(!deletedVideo){
       res.status(404).send('video not found');

@@ -73,6 +73,7 @@ const Detail = () => {
             <TableCell align="right">Title</TableCell>
             <TableCell align="right">Release Year</TableCell>
             <TableCell align="right">Video</TableCell>
+            <TableCell align="right">Operation</TableCell>
            
           </TableRow>
         </TableHead>
@@ -82,15 +83,21 @@ const Detail = () => {
               key={video._id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
-              {/* <TableCell component="th" scope="row">
-                <video width={170} height={100} src={video.cover} alt={video.name}/>
-              </TableCell> */}
               <TableCell align="right">{video.title}</TableCell>
               <TableCell align="right">{video.releaseYear}</TableCell>
-              <TableCell align="right"><Button onClick={()=>{
+             
+              <TableCell component="th" scope="row">
+                <video controls width={170} height={100}  alt={video.name}>
+                  {console.log('VIDEO: ',video.video)}
+                <source src={video.video} type="video/mp4"/>
+                Sorry, your browser doesn't support embedded videos.
+                  </video>
+              </TableCell>
+             
+              {/* <TableCell align="right"><Button onClick={()=>{
                 deleteVideoByID(video._id)
                 setVideos(video.filter((x)=>x._id!==video._id))
-              }} variant='contained' color='error'>Delete</Button></TableCell>
+              }} variant='contained' color='error'>Delete</Button></TableCell> */}
              
             </TableRow>
           ))}
