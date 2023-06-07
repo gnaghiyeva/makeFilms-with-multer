@@ -25,13 +25,14 @@ const Detail = () => {
   useEffect(() => {
     getFilmById(id).then(res => {
       setFilm(res.data)
+      console.log('film: ',res.data);
     })
   }, [id])
 
   useEffect(()=>{
     getFilmsVideosByID(id).then((res)=>{
       setVideos(res)
-      console.log(res)
+      console.log('video: ',res);
     })
   },[id])
 
